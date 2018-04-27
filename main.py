@@ -89,10 +89,10 @@ class saram(object):
                     count += 1
 
                     image_file_name = path + '/' + f #Full /dir/path/filename.extension
-
-                    '''
                     filename = os.path.splitext(f)[0] #Filename without extension
                     filename = ''.join(e for e in filename if e.isalnum() or e == '-') #Join string of filename if it contains alphanumeric characters or -
+                    
+                    '''
                     text_file_path = directory_path + filename #Join dir_path with file_name
 
                     if self.tool.can_detect_orientation():
@@ -117,6 +117,9 @@ class saram(object):
                     txt = txt.replace('\n', ' ').replace('\r', '').replace('\t', ' ') #Replace \n and \t with space
                     txt = txt[:60] #Take 1st 100 words
                     print(txt)
+                    
+                    os.chmod(path, 0o777)
+                    os.rename(image_file_name,txt + ext) 
 
                     print(str(count) + (" file" if count == 1 else " files") + " processed")
 
