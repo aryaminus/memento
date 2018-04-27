@@ -68,8 +68,31 @@ class saram(object):
         print('Fixing rotation %.2f in %s...' % (degrees, filename))
         im1.rotate(degrees).save(filename)
 
-    def savefile(self, image_file_name, text_file_path):
+    def savefile(self, txt, text_file_path):
+        
+        default = None
 
+        valid = {"yes":True,   "y":True,  "ye":True,
+                    "no":False,     "n":False}
+        if default == None:
+            prompt = " [y/n] "
+        elif default == "yes":
+            prompt = " [Y/n] "
+        elif default == "no":
+            prompt = " [y/N] "
+        else:
+            raise ValueError("invalid default answer: '%s'" % default)
+        
+        while True:
+            sys.stdout.write('Save the OCR in /OCR-text/ ? ' + prompt)
+            choice = input().lower()
+            if default is not None and choice == '':
+                return valid[default]
+            elif choice in valid:
+                return valid[choice]
+            else:
+                sys.stdout.write("Please respond with 'yes' or 'no' "\
+                                "(or 'y' or 'n').\n")
         
     def main(self, path):
         if bool(os.path.exists(path)):
@@ -123,7 +146,7 @@ class saram(object):
                     os.chmod(path, 0o777)
                     os.rename(image_file_name, initial + ext)
 
-                    self.savefile(image_file_name, text_file_path)
+                    self.savefile(txt, text_file_path)
 
                     print(str(count) + (" file" if count == 1 else " files") + " processed")
 
