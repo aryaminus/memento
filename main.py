@@ -12,7 +12,7 @@ from PIL import Image as Im
 from pyocr import tesseract as tool
 from wand.image import Image
 
-VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp", ".pdf"]
+VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp"]
 
 FNULL = open(os.devnull, 'w') #Open file in write mode to The file path of the null device. For example: '/dev/null' 
 
@@ -100,7 +100,7 @@ class saram(object):
 
                 if ext.lower() not in VALIDITY: #Convert to lowercase and check in validity list          
                     other_files += 1 #Increment if other than validity extension found
-                    sys.stdout.write("Extension other than image is un supported. \n")
+                    #sys.stdout.write("Extension other than image is not supported. \n")
                     continue
 
                 else:
@@ -132,7 +132,7 @@ class saram(object):
                     )
                     
                     #txt = txt.split()[:5]
-                    initial = txt.replace('\n', ' ').replace('\r', '').replace('\t', ' ').replace('.','_') #Replace \n and \t with space
+                    initial = txt.replace('\n', ' ').replace('\r', '').replace('\t', ' ') #.replace('.','_') #Replace \n and \t with space
                     initial = initial[:60] #Take 1st 100 words
                     print(initial)
 
