@@ -21,7 +21,7 @@ class ArgumentMissingException(Exception):
         print("usage: {} <dirname>".format(sys.argv[0]))
         sys.exit(1)
 
-class saram(object):
+class memento(object):
     
     def __init__(self, path):
         
@@ -130,7 +130,7 @@ class saram(object):
                     )
                     
                     #txt = txt.split()[:5]
-                    initial = txt.replace('\n', ' ').replace('\r', '').replace('\t', ' ') #.replace('.','_') #Replace \n and \t with space
+                    initial = txt.replace('\n', ' ').replace('\r', '').replace('\t', ' ').replace('\r\n','') #.replace('.','_') #Replace \n and \t with space
                     initial = initial[:60] #Take 1st 100 words
                     print('Filename:' + initial + '\n')
 
@@ -153,5 +153,5 @@ if __name__ == '__main__': #Execute all code before reading source file, ie. exe
         raise ArgumentMissingException
     path = sys.argv[1] #python main.py "path_to/img_dir" ie the argv[1] value
     path = os.path.abspath(path) #Accesing filesystem for Return a normalized absolutized version of the pathname path
-    s = saram(path)
+    s = memento(path)
     s.main(path) # Def main to path
