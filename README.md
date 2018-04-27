@@ -3,7 +3,7 @@ Organize your memes by fetching the OCR from the meme and renaming it with the i
 
 **Currently in alpha state**
 
-[![memento features](https://i.imgur.com/wIFPRtU.gif)](https://i.imgur.com/wIFPRtU.gif)
+[![memento features](https://i.imgur.com/umascRn.gif)](https://youtu.be/YF6Tf7qOXU4)
 
 **Note:**
 Make sure you have a OCR tool like `tesseract` and certain data value for comparing OCR, eg `tesseract-data-eng` along with `Pillow` and `Wand` for image conversion and loading.
@@ -22,6 +22,7 @@ $ python main.py <dirname>
 - [x] Fix for subprocess to accept spaced directories
 - [x] Add choice to fetch full OCR text into `/OCR-text/` directory
 - [ ] Apply NLTK with window to edit the fetched text to modify and fix typos in meme
+- [ ] Apply Classification to organize the memes baised on the image category template for prediction model
 - [ ] Add GUI with tkinter to attach text to a meme image
 
 ## Reference
