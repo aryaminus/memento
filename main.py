@@ -83,9 +83,9 @@ class saram(object):
             fw.close()
         if choice[0] == 'n':
             #return False
-            sys.stdout.write("Not saving the Full OCR")
+            sys.stdout.write("Not saving the OCR in txt format \n")
         else:
-            sys.stdout.write("Please respond with 'y' or 'n': ")
+            sys.stdout.write("Please respond with 'y' or 'n': \n")
         
     def main(self, path):
         if bool(os.path.exists(path)):
@@ -100,6 +100,7 @@ class saram(object):
 
                 if ext.lower() not in VALIDITY: #Convert to lowercase and check in validity list          
                     other_files += 1 #Increment if other than validity extension found
+                    sys.stdout.write("Extension other than image is un supported. \n")
                     continue
 
                 else:
