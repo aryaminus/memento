@@ -112,7 +112,10 @@ class saram(object):
                         Im.open(image_file_name), lang=self.lang,
                         builder=pyocr.builders.TextBuilder()
                     )
-
+                    
+                    #txt = txt.split()[:5]
+                    txt = txt.replace('\n', ' ').replace('\r', '').replace('\t', ' ') #Replace \n and \t with space
+                    txt = txt[:60] #Take 1st 100 words
                     print(txt)
 
                     print(str(count) + (" file" if count == 1 else " files") + " processed")
