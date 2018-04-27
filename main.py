@@ -51,8 +51,8 @@ class memento(object):
     
     def get_rotation_info(self, filename):
         arguments = ' %s - -psm 0'
-        #filename = filename.replace(' ', chr(32))
-        #filename = [filename]
+        filename = "'" + filename + "'" #Needed as filename need to be in quotes having spaces which is not accepted direct in  subprocess
+        # /to/dir = '/to/dir'
         stdoutdata = subprocess.getoutput('tesseract' + arguments % filename)
         degrees = None
 
@@ -132,7 +132,7 @@ class memento(object):
                     )
                     
                     #txt = txt.split()[:5]
-                    initial = txt.replace('\a', '_').replace('\b', '_').replace('\f', '_').replace('\n','_').replace('\r', '_').replace('\t','_').replace('\v','_').replace(' ','_') #.replace('.','_') #Replace \n and \t with space
+                    initial = txt.replace('\a', '_').replace('\b', '_').replace('\f', '_').replace('\n','_').replace('\r', '_').replace('\t','_').replace('\v','_') #.replace(' ','_') #.replace('.','_') #Replace \n and \t with space
                     initial = initial[:60] #Take 1st 100 words
                     print('Filename:' + initial + '\n')
 
