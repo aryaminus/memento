@@ -114,12 +114,12 @@ class saram(object):
                     )
                     
                     #txt = txt.split()[:5]
-                    txt = txt.replace('\n', ' ').replace('\r', '').replace('\t', ' ') #Replace \n and \t with space
-                    txt = txt[:60] #Take 1st 100 words
-                    print(txt)
-                    
+                    initial = txt.replace('\n', ' ').replace('\r', '').replace('\t', ' ') #Replace \n and \t with space
+                    initial = txt[:60] #Take 1st 100 words
+                    print(initial)
+
                     os.chmod(path, 0o777)
-                    os.rename(image_file_name,txt + ext) 
+                    os.rename(image_file_name, initial + ext) 
 
                     print(str(count) + (" file" if count == 1 else " files") + " processed")
 
