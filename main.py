@@ -68,7 +68,7 @@ class saram(object):
         print('Fixing rotation %.2f in %s...' % (degrees, filename))
         im1.rotate(degrees).save(filename)
 
-    def savefile(self,initial, txt, text_file_path, count, directory_path):
+    def savefile(self,initial, txt, directory_path):
         
         prompt = " [y/n]: "
         
@@ -78,7 +78,7 @@ class saram(object):
             #return True
             if (bool(os.path.exists(directory_path)) == False): #No directory created
                 self.create_directory(directory_path) #function to create directory
-            fw = open(directory_path + "/" + initial + ".txt" , "x")
+            fw = open(directory_path + "/" + initial + ".txt" , "w+")
             fw.write(txt)
             fw.close()
         if choice[0] == 'n':
@@ -109,9 +109,9 @@ class saram(object):
                     image_file_name = path + '/' + f #Full /dir/path/filename.extension
                     filename = os.path.splitext(f)[0] #Filename without extension
                     filename = ''.join(e for e in filename if e.isalnum() or e == '-') #Join string of filename if it contains alphanumeric characters or -
-                    text_file_path = directory_path + filename #Join dir_path with file_name
                     
                     '''
+                    text_file_path = directory_path + filename #Join dir_path with file_name
                     if self.tool.can_detect_orientation():
                         orientation = self.tool.detect_orientation(image_file_name, lang=self.lang)
                         angle = orientation["angle"]
@@ -138,7 +138,7 @@ class saram(object):
                     os.chmod(path, 0o777)
                     os.rename(image_file_name, initial + ext)
 
-                    self.savefile(initial, txt, text_file_path, count, directory_path)
+                    self.savefile(initial, txt, directory_path)
 
                     print(str(count) + (" file" if count == 1 else " files") + " processed")
 
