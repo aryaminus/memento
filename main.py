@@ -30,9 +30,6 @@ class saram(object):
         ocr_language = 'eng'
         
         path = path
-
-        #if call(['which', 'tesseract']): #Run the command described by args
-        #    print("tesseract-ocr missing") #No tesseract installed
         
         tools = pyocr.get_available_tools()
         if len(tools) == 0:
@@ -92,19 +89,27 @@ class saram(object):
                     count += 1
 
                     image_file_name = path + '/' + f #Full /dir/path/filename.extension
+
+                    '''
                     filename = os.path.splitext(f)[0] #Filename without extension
                     filename = ''.join(e for e in filename if e.isalnum() or e == '-') #Join string of filename if it contains alphanumeric characters or -
                     text_file_path = directory_path + filename #Join dir_path with file_name
 
+                    if self.tool.can_detect_orientation():
+                        orientation = self.tool.detect_orientation(image_file_name, lang=self.lang)
+                        angle = orientation["angle"]
+                        if angle != 0:
+                            image_file_name.rotate(orientation["angle"])
+                    print("Orientation: {}".format(orientation))
+                    '''
+                    
                     degrees = self.get_rotation_info(image_file_name)
                     print(degrees)
                     if degrees:
                         self.fix_dpi_and_rotation(image_file_name, degrees, ext)
-                                        
-                    call(["tesseract", image_file_name, text_file_path], stdout=FNULL) #Fetch tesseract with FNULL in write mode
 
                     txt = tool.image_to_string(
-                        Im.open(image_file_name),
+                        Im.open(image_file_name), lang=self.lang,
                         builder=pyocr.builders.TextBuilder()
                     )
 
