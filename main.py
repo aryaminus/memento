@@ -9,6 +9,7 @@ import PIL.Image as Im
 import pyocr
 import pyocr.builders
 from PIL import Image as Im
+from pyocr import tesseract as tool
 from wand.image import Image
 
 VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp", ".pdf"]
@@ -103,6 +104,13 @@ class saram(object):
                 count += 1
                                         
                 call(["tesseract", image_file_name, text_file_path], stdout=FNULL) #Fetch tesseract with FNULL in write mode
+
+                txt = tool.image_to_string(
+			        Im.open(image_file_name),
+				    builder=pyocr.builders.TextBuilder()
+			    )
+
+                print(txt)
 
                 print(str(count) + (" file" if count == 1 else " files") + " processed")
 
