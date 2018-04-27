@@ -2,8 +2,6 @@ import io
 import os
 import subprocess
 import sys
-import time
-from subprocess import call
 
 import PIL.Image as Im
 import pyocr
@@ -83,7 +81,7 @@ class saram(object):
             fw.close()
         if choice[0] == 'n':
             #return False
-            sys.stdout.write("Not saving the OCR in txt format \n")
+            sys.stdout.write("Not saving the OCR in txt format \n \n")
         else:
             sys.stdout.write("Please respond with 'y' or 'n': \n")
         
@@ -134,7 +132,7 @@ class saram(object):
                     #txt = txt.split()[:5]
                     initial = txt.replace('\n', ' ').replace('\r', '').replace('\t', ' ') #.replace('.','_') #Replace \n and \t with space
                     initial = initial[:60] #Take 1st 100 words
-                    print(initial)
+                    print('Filename:' + initial + '\n')
 
                     os.chmod(path, 0o777)
                     os.rename(image_file_name, initial + ext)
