@@ -70,29 +70,17 @@ class saram(object):
 
     def savefile(self, txt, text_file_path):
         
-        default = None
-
-        valid = {"yes":True,   "y":True,  "ye":True,
-                    "no":False,     "n":False}
-        if default == None:
-            prompt = " [y/n] "
-        elif default == "yes":
-            prompt = " [Y/n] "
-        elif default == "no":
-            prompt = " [y/N] "
-        else:
-            raise ValueError("invalid default answer: '%s'" % default)
+        prompt = " [y/n] "
         
         while True:
             sys.stdout.write('Save the OCR in /OCR-text/ ? ' + prompt)
-            choice = input().lower()
-            if default is not None and choice == '':
-                return valid[default]
-            elif choice in valid:
-                return valid[choice]
+            choice = input().lower().strip()
+            if choice[0] == 'y':
+                return True
+            if choice[0] == 'n':
+                return False
             else:
-                sys.stdout.write("Please respond with 'yes' or 'no' "\
-                                "(or 'y' or 'n').\n")
+                sys.stdout.write("Please respond with 'y' or 'n' ")
         
     def main(self, path):
         if bool(os.path.exists(path)):
