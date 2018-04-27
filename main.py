@@ -68,22 +68,24 @@ class saram(object):
         print('Fixing rotation %.2f in %s...' % (degrees, filename))
         im1.rotate(degrees).save(filename)
 
-    def savefile(self,initial, txt, text_file_path):
+    def savefile(self,initial, txt, text_file_path, count, directory_path):
         
         prompt = " [y/n]: "
         
-        while True:
-            sys.stdout.write('Save the OCR in /OCR-text/ ? ' + prompt)
-            choice = input().lower().strip()
-            if choice[0] == 'y':
-                #return True
-                fw = open(text_file_path + "/" + initial + ".txt" , "w")
-                fw.write(txt)
-                fw.close()
-            if choice[0] == 'n':
-                return False
-            else:
-                sys.stdout.write("Please respond with 'y' or 'n': ")
+        sys.stdout.write('Save the OCR in /OCR-text/ ? ' + prompt)
+        choice = input().lower().strip()
+        if choice[0] == 'y':
+            #return True
+            #if (bool(os.path.exists(directory_path)) == False): #No directory created
+            self.create_directory(directory_path) #function to create directory
+            fw = open(text_file_path + "/" + initial + ".txt" , "x")
+            fw.write(txt)
+            fw.close()
+        if choice[0] == 'n':
+            #return False
+            sys.stdout.write("Not saving the Full OCR")
+        else:
+            sys.stdout.write("Please respond with 'y' or 'n': ")
         
     def main(self, path):
         if bool(os.path.exists(path)):
@@ -101,8 +103,7 @@ class saram(object):
                     continue
 
                 else:
-                    if count == 0: #No directory created
-                        self.create_directory(directory_path) #function to create directory
+
                     count += 1
 
                     image_file_name = path + '/' + f #Full /dir/path/filename.extension
@@ -130,14 +131,14 @@ class saram(object):
                     )
                     
                     #txt = txt.split()[:5]
-                    initial = txt.replace('\n', ' ').replace('\r', '').replace('\t', ' ') #Replace \n and \t with space
-                    initial = txt[:60] #Take 1st 100 words
+                    initial = txt.replace('\n', ' ').replace('\r', '').replace('\t', ' ').replace('.','_') #Replace \n and \t with space
+                    initial = initial[:60] #Take 1st 100 words
                     print(initial)
 
                     os.chmod(path, 0o777)
                     os.rename(image_file_name, initial + ext)
 
-                    self.savefile(initial, txt, text_file_path)
+                    self.savefile(initial, txt, text_file_path, count, directory_path)
 
                     print(str(count) + (" file" if count == 1 else " files") + " processed")
 
