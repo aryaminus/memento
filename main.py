@@ -132,7 +132,7 @@ class memento(object):
                     )
                     
                     #txt = txt.split()[:5]
-                    initial = txt.replace('\a', '_').replace('\b', '_').replace('\f', '_').replace('\n','_').replace('\r', '_').replace('\t','_').replace('\v','_') #.replace(' ','_') #.replace('.','_') #Replace \n and \t with space
+                    initial = txt.replace('\a', ' ').replace('\b', ' ').replace('\f', ' ').replace('\n',' ').replace('\r', '').replace('\t',' ').replace('\v',' ') #.replace(' ','_') #.replace('.','_') #Replace \n and \t with space
                     initial = initial[:60] #Take 1st 100 words
                     print('Filename:' + initial + '\n')
 
