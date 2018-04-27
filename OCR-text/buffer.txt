@@ -1,0 +1,20 @@
+Philip Lee
+Philee
+
+[3] Viola, P.; Jones, M., "Robust real—time face detection," Computer Vision, 2001. ICCV 2001.
+Proceedings. Eighth IEEE International Conference on , V012, no., pp.747,747, 2001.
+
+URL: http://ieeexp10re.ieee.org/stamp/stamp.jSp?tp=&arnumber=937709&isnumber=202
+%
+
+ 
+
+[4] P. Tresadern, M. Ionita, T. Cootes, “Real—Time Facial Feature Tracking on a Mobile Device”.
+International Journal of Computer Vision, V01. 96, no. 3, pp. 280—289. Feb. 2012.
+
+[5] BITS Pilani Goa Campus, India, “Active Appearance Model Face Tracer using OpenCV in
+C++”. [online]. Available: https://code.google.com/p/aam—opencv/
+
+[6] Richard Hartley and Andrew Zisserman (2003). Multiple View Geometry in Computer
+Vision (2nd ed.). Cambridge University Press.
+
