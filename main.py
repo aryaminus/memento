@@ -76,8 +76,8 @@ class saram(object):
         choice = input().lower().strip()
         if choice[0] == 'y':
             #return True
-            #if (bool(os.path.exists(directory_path)) == False): #No directory created
-            self.create_directory(directory_path) #function to create directory
+            if (bool(os.path.exists(directory_path)) == False): #No directory created
+                self.create_directory(directory_path) #function to create directory
             fw = open(directory_path + "/" + initial + ".txt" , "x")
             fw.write(txt)
             fw.close()
