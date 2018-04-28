@@ -2,9 +2,9 @@ import os
 import shutil
 import sys
 
-from image_crop import image_crop_main
-from image_join import image_join_main
-from image_ocr import image_ocr_main
+from cv_img.image_crop import image_crop_main
+from cv_img.image_join import image_join_main
+from cv_img.image_ocr import image_ocr_main
 
 VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp"]
 
@@ -21,19 +21,19 @@ class maker(object):
 
     def editext(self, text):
         while True:
-            print('Current text:' + text + '\n')
-            prompt = " [1/2/3/4]: "
-            sys.stdout.write(' \n 1) Edit text \n 2) Replace word \n 3) Change complete \n ' + prompt)
+            print('\nCurrent text: \n' + text)
+            prompt = " [1/2/3]: "
+            sys.stdout.write(' \n 1) Edit text \n 2) Replace word \n 3) Change complete ' + prompt)
             choice = input().lower().strip()
             if choice[0] == '1':
                 print ('Enter new text:')
                 text = input()
             elif choice[0] == '2':
-                print('Enter word to replace:')
+                print('\n Enter word to replace:')
                 orig = input()
                 print('\n Enter the new word:')
                 new = input()
-                text.replace(orig, new)
+                text = text.replace(orig, new)
             elif choice[0] == '3':
                 break
             else:
