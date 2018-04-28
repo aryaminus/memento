@@ -3,6 +3,8 @@ import os
 from subprocess import call
 
 from ocr_rename import ocr_rename_main
+from ocr_orientation import ocr_orientation_main
+from ocr_save import ocr_save_main
 
 class ArgumentMissingException(Exception):
     def __init__(self):
@@ -16,7 +18,18 @@ def main(path):
     if call(['which', 'tesseract']): #Run the command described by args
     	print("tesseract-ocr missing") #No tesseract installed
     elif check_path(path):
-        ocr_rename_main(path)
+        prompt = " [1/2/3]: "
+        sys.stdout.write('1) Orientation Check \n 2) Rename \n 3) Save OCR ' + prompt)
+        choice = input().lower().strip()
+        if choice[0] == '1':
+            ocr_orientation_main(path)
+        if choice[0] == '2':
+            ocr_rename_main(path)
+        if choice[0] == '2':
+            ocr_save_main(path)
+        else:
+            sys.stdout.write("Invalid Choice \n")
+        
     else :
         print("No directory : " + format(path))
 
