@@ -15,20 +15,27 @@ def check_path(path):
     	return bool(os.path.exists(path)) #Checkif path exists
 
 def main(path):
+    call(['clear'])
+    if call(['which', 'tesseract']): #Run the command described by args
+        print("tesseract-ocr missing") #No tesseract installed
     while(True):
-        if call(['which', 'tesseract']): #Run the command described by args
-            print("tesseract-ocr missing") #No tesseract installed
-        elif check_path(path):
+        sys.stdout.write("\t\t\t Memento: Meme Organizer \t \n")
+        if check_path(path):
             prompt = " [1/2/3/4]: "
+            sys.stdout.write("\n")
             sys.stdout.write(' 1) Orientation Check \n 2) Rename \n 3) Save OCR \n 4) Exit ' + prompt)
             choice = input().lower().strip()
             if choice[0] == '1':
                 ocr_orientation_main(path)
-            if choice[0] == '2':
+                print("DONE!! \n")
+            elif choice[0] == '2':
                 ocr_rename_main(path)
-            if choice[0] == '3':
+                print("DONE!! \n")
+            elif choice[0] == '3':
                 ocr_save_main(path)
-            if choice[0] == '4':
+                print("DONE!! \n")
+            elif choice[0] == '4':
+                print("\t\t\t Thank you for using Memento!")
                 sys.exit(1)
             else:
                 sys.stdout.write("Invalid Choice \n")
