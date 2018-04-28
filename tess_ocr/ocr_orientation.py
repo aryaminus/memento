@@ -46,12 +46,14 @@ class orientation(object):
             else:
 
                 count += 1
-
-                image_file_name = path + '/' + f #Full /dir/path/filename.extension
-                degrees = self.get_rotation_info(image_file_name)
-                print(degrees)
-                if degrees:
-                    self.fix_dpi_and_rotation(image_file_name, degrees, ext)
+                c=0
+                while c!=2:
+                    image_file_name = path + '/' + f #Full /dir/path/filename.extension
+                    degrees = self.get_rotation_info(image_file_name)
+                    print(degrees)
+                    if degrees:
+                        self.fix_dpi_and_rotation(image_file_name, degrees, ext)
+                    c += 1
 
                 print(str(count) + (" file" if count == 1 else " files") + " processed")
 
