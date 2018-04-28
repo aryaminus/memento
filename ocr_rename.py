@@ -39,25 +39,6 @@ class rename(object):
     def create_directory(self, path):
         if not os.path.exists(path): #No path
 	        os.makedirs(path) #Create path
-    
-    def get_rotation_info(self, filename):
-        arguments = ' %s - -psm 0'
-        filename = "'" + filename + "'" #Needed as filename need to be in quotes having spaces which is not accepted direct in  subprocess
-        # /to/dir = '/to/dir'
-        stdoutdata = subprocess.getoutput('tesseract' + arguments % filename)
-        degrees = None
-
-        for line in stdoutdata.splitlines():
-            print(line)
-            info = 'Orientation in degrees: '
-            if info in line:
-                degrees = -float(line.replace(info, '').strip())
-        return degrees
-
-    def fix_dpi_and_rotation(self, filename, degrees, ext):
-        im1 = Im.open(filename)
-        print('Fixing rotation %.2f in %s...' % (degrees, filename))
-        im1.rotate(degrees).save(filename)
 
     def savefile(self,initial, txt, directory_path):
         
@@ -101,21 +82,6 @@ class rename(object):
                 filename = os.path.splitext(f)[0] #Filename without extension
                 filename = ''.join(e for e in filename if e.isalnum() or e == '-') #Join string of filename if it contains alphanumeric characters or -
                 
-                '''
-                text_file_path = directory_path + filename #Join dir_path with file_name
-                if self.tool.can_detect_orientation():
-                    orientation = self.tool.detect_orientation(image_file_name, lang=self.lang)
-                    angle = orientation["angle"]
-                    if angle != 0:
-                        image_file_name.rotate(orientation["angle"])
-                print("Orientation: {}".format(orientation))
-                '''
-                
-                degrees = self.get_rotation_info(image_file_name)
-                print(degrees)
-                if degrees:
-                    self.fix_dpi_and_rotation(image_file_name, degrees, ext)
-
                 txt = tool.image_to_string(
                     Im.open(image_file_name), lang=self.lang,
                     builder=pyocr.builders.TextBuilder()
