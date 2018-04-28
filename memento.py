@@ -1,10 +1,11 @@
-import sys
 import os
+import sys
 from subprocess import call
 
-from ocr_rename import ocr_rename_main
 from ocr_orientation import ocr_orientation_main
+from ocr_rename import ocr_rename_main
 from ocr_save import ocr_save_main
+
 
 class ArgumentMissingException(Exception):
     def __init__(self):
