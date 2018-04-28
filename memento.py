@@ -16,7 +16,7 @@ def main(path):
     if call(['which', 'tesseract']): #Run the command described by args
     	print("tesseract-ocr missing") #No tesseract installed
     elif check_path(path):
-        print('yo')
+        ocr_rename_main(path)
     else :
         print("No directory : " + format(path))
 

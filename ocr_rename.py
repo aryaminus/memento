@@ -12,17 +12,13 @@ from wand.image import Image
 
 VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp"]
 
-FNULL = open(os.devnull, 'w') #Open file in write mode to The file path of the null device. For example: '/dev/null' 
-
-path = ""
+#FNULL = open(os.devnull, 'w') #Open file in write mode to The file path of the null device. For example: '/dev/null' 
 
 class rename(object):
     
-    def __init__(self, path):
+    def __init__(self):
         
         ocr_language = 'eng'
-        
-        path = path
         
         tools = pyocr.get_available_tools()
         if len(tools) == 0:
@@ -131,7 +127,7 @@ class rename(object):
                 print('Filename:' + initial + '\n')
 
                 os.chmod(path, 0o777)
-                os.rename(image_file_name, initial + ext)
+                os.rename(image_file_name, path + '/' + initial + ext)
 
                 self.savefile(initial, txt, directory_path)
 
@@ -143,5 +139,6 @@ class rename(object):
             print(str(count) + " / " + str(count + other_files) + " files converted")
 
 def ocr_rename_main(path):
-    s = rename(path)
+    print(path)
+    s = rename()
     s.main(path) # Def main to path
