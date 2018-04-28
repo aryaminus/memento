@@ -4,11 +4,11 @@ Organize your memes by having the window to:
 - Fix the meme orientation
 - Fetching the OCR from the meme and renaming the particular image with the initial 60 characters 
 - Option to track all text from the image and store in `/OCR-text/`
-- Using OpenCV to segment Image and text to get the recognized text to edit the meme
+- Using OpenCV to segment Image and text to get the recognized text to edit the meme and store in `/Memento/`
 
-**Currently in alpha state**
+**Currently in beta state**
 
-[![memento features](https://i.imgur.com/umascRn.gif)](https://youtu.be/YF6Tf7qOXU4)
+[![memento features](https://i.imgur.com/WwXUTnW.gif)](https://youtu.be/YF6Tf7qOXU4)
 
 **Note:**
 Make sure you have a OCR tool like `tesseract` and certain data value for comparing OCR, eg `tesseract-data-eng` along with `Pillow` and `Wand` for image conversion and loading to draw along with `numpy` and `cv2` for all Image processing required to crop the image with border values defined
@@ -27,7 +27,8 @@ $ python main.py <dirname>
 - [x] Fix for subprocess to accept spaced directories
 - [x] Add choice to fetch full OCR text into `/OCR-text/` directory
 - [x] String stream to allow user to choose the particular feature of memento
-- [x] Using OpenCV to partition image and text section to edit the text and generate edited image in `/Memento/` directory
+- [x] Using OpenCV to partition image and text section to edit the text
+- [ ] Listing the images in the directory to edit a particular image only
 - [ ] Apply NLTK with window to edit the fetched text to modify and fix typos in meme
 - [ ] Apply Classification to organize the memes baised on the image category template for prediction model
 - [ ] Add GUI with tkinter to attach text to a meme image
@@ -36,6 +37,7 @@ $ python main.py <dirname>
 1. <a href="https://github.com/lucab85/PDFtoTXT" target="_blank">PDFtoTXT</a>
 2. <a href="https://github.com/pySushi/OCR" target="_blank">OCR</a>
 3. <a href="https://github.com/aryaminus/saram" target="_blank">Saram</a>
+4. <a href="https://github.com/evmarts/meme-maker" target="_blank">Meme-maker</a>
 
 
 -----------------------------------------------------------------------------------------------------------
