@@ -1,5 +1,5 @@
 import os
-
+import sys
 from image_crop import image_crop_main
 from image_ocr import image_ocr_main
 
@@ -14,7 +14,28 @@ class maker(object):
         if not os.path.exists(directory_path_text): #No path
 	        os.makedirs(directory_path_text) #Create path
         if not os.path.exists(directory_path_pic): #No path
-	        os.makedirs(directory_path_pic) #Create path
+	        os.makedirs(directory_path_pic) #Create path]
+  
+    def editext(self, text):
+        while True:
+            print('Current text:' + text + '\n')
+            prompt = " [1/2/3/4]: "
+            sys.stdout.write(' \n 1) Edit text \n 2) Replace word \n 3) Change complete \n ' + prompt)
+            choice = input().lower().strip()
+            if choice[0] == '1':
+                print ('Enter new text:')
+                text = input()
+            elif choice[0] == '2':
+                print('Enter word to replace:')
+                orig = input()
+                print('\n Enter the new word:')
+                new = input()
+                text.replace(orig, new)
+            elif choice[0] == '3':
+                break
+            else:
+                sys.stdout.write("Invalid Choice \n")
+        return text
 
     def main(self, path):
         directory_path_text = path + '/image/' #Create text_conversion folder
@@ -44,6 +65,10 @@ class maker(object):
                 text_img_name = filename + '_text' + ext
                 text_img_name = directory_path_text + text_img_name                
                 text = image_ocr_main(text_img_name)
+                
+                new_text = self.editext(text)
+
+                #image_
 
                 print(str(count) + (" file" if count == 1 else " files") + " processed")
 
