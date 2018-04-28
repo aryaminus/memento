@@ -5,6 +5,7 @@ import sys
 from cv_img.image_crop import image_crop_main
 from cv_img.image_join import image_join_main
 from cv_img.image_ocr import image_ocr_main
+from tess_ocr.ocr_rename import ocr_rename_main
 
 VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp"]
 
@@ -83,6 +84,7 @@ class maker(object):
         else :
             print(str(count) + " / " + str(count + other_files) + " files converted")
             shutil.rmtree(path + '/text/')
+            ocr_rename_main(path + '/Memento/')
 
 def image_make_main(path):
     print(path)
