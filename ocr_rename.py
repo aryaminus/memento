@@ -8,11 +8,8 @@ import pyocr
 import pyocr.builders
 from PIL import Image as Im
 from pyocr import tesseract as tool
-from wand.image import Image
 
 VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp"]
-
-#FNULL = open(os.devnull, 'w') #Open file in write mode to The file path of the null device. For example: '/dev/null' 
 
 class rename(object):
     
@@ -35,33 +32,9 @@ class rename(object):
             print("OCR selected language: %s (available: %s)" % (self.lang.upper(), ", ".join(langs)))
         except Exception as e:
             print("{}".format(e))
-    
-    def create_directory(self, path):
-        if not os.path.exists(path): #No path
-	        os.makedirs(path) #Create path
-
-    def savefile(self,initial, txt, directory_path):
-        
-        prompt = " [y/n]: "
-        
-        sys.stdout.write('Save the OCR in /OCR-text/ ? ' + prompt)
-        choice = input().lower().strip()
-        if choice[0] == 'y':
-            #return True
-            if (bool(os.path.exists(directory_path)) == False): #No directory created
-                self.create_directory(directory_path) #function to create directory
-            fw = open(directory_path + "/" + initial + ".txt" , "w+")
-            fw.write(txt)
-            fw.close()
-        if choice[0] == 'n':
-            #return False
-            sys.stdout.write("Not saving the OCR in txt format \n \n")
-        else:
-            sys.stdout.write("Please respond with 'y' or 'n': \n")
-        
+            
     def main(self, path):
 
-        directory_path = path + '/OCR-text/' #Create text_conversion folder
         count = 0
         other_files = 0
 
@@ -79,23 +52,18 @@ class rename(object):
                 count += 1
 
                 image_file_name = path + '/' + f #Full /dir/path/filename.extension
-                filename = os.path.splitext(f)[0] #Filename without extension
-                filename = ''.join(e for e in filename if e.isalnum() or e == '-') #Join string of filename if it contains alphanumeric characters or -
-                
+
                 txt = tool.image_to_string(
                     Im.open(image_file_name), lang=self.lang,
                     builder=pyocr.builders.TextBuilder()
                 )
                 
-                #txt = txt.split()[:5]
                 initial = txt.replace('\a', ' ').replace('\b', ' ').replace('\f', ' ').replace('\n',' ').replace('\r', '').replace('\t',' ').replace('\v',' ') #.replace(' ','_') #.replace('.','_') #Replace \n and \t with space
                 initial = initial[:60] #Take 1st 100 words
                 print('Filename:' + initial + '\n')
 
                 os.chmod(path, 0o777)
                 os.rename(image_file_name, path + '/' + initial + ext)
-
-                self.savefile(initial, txt, directory_path)
 
                 print(str(count) + (" file" if count == 1 else " files") + " processed")
 
