@@ -3,6 +3,7 @@ import sys
 from image_crop import image_crop_main
 from image_ocr import image_ocr_main
 from image_join import image_join_main
+import shutil
 
 VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp"]
 
@@ -80,6 +81,7 @@ class maker(object):
             print("No files found") #No files found
         else :
             print(str(count) + " / " + str(count + other_files) + " files converted")
+            shutil.rmtree(path + '/text/')
 
 def image_make_main(path):
     print(path)
