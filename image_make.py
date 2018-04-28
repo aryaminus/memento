@@ -1,6 +1,7 @@
 import os
 
 from image_crop import image_crop_main
+from image_ocr import image_ocr_main
 
 VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp"]
 
@@ -39,6 +40,10 @@ class maker(object):
                 count += 1
 
                 image_crop_main(image_file_name, filename, directory_path_text, directory_path_pic, ext)
+                
+                text_img_name = filename + '_text' + ext
+                text_img_name = directory_path_text + text_img_name                
+                text = image_ocr_main(text_img_name)
 
                 print(str(count) + (" file" if count == 1 else " files") + " processed")
 
