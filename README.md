@@ -19,8 +19,7 @@ Clone the source locally:
 ```
 $ git clone https://github.com/aryaminus/memento
 $ cd memento
-$ git checkout feature/ocr
-$ python main.py <dirname>
+$ python memento.py <dirname>
 ```
 ## Stepwise working
 <p align="center">
