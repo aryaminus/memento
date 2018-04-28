@@ -39,4 +39,5 @@ class iocr(object):
 def image_ocr_main(text_img_name):
     #print(path)
     s = iocr()
-    s.main(text_img_name) # Def main to path
+    txt = s.main(text_img_name) # Def main to path
+    return txt
