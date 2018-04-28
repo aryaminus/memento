@@ -22,6 +22,7 @@ $ cd memento
 $ git checkout feature/ocr
 $ python main.py <dirname>
 ```
+[![memento working](https://i.imgur.com/cSI9p57.png)](https://youtu.be/YF6Tf7qOXU4)
 
 ## Todo
 - [x] Fix for subprocess to accept spaced directories
