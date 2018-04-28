@@ -2,6 +2,8 @@ import sys
 import os
 from subprocess import call
 
+from ocr_rename import ocr_rename_main
+
 class ArgumentMissingException(Exception):
     def __init__(self):
         print("usage: {} <dirname>".format(sys.argv[0]))
