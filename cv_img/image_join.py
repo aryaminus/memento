@@ -1,6 +1,5 @@
 import math
 import os
-import shutil
 import textwrap
 
 import PIL
@@ -97,8 +96,6 @@ class ijoin(object):
         
         os.chmod(path, 0o777) 
         background.save(image_path)
-        #shutil.rmtree(path + '/text/')
-        #shutil.rmtree(path + '/pic/')
                 
 def image_join_main(new_text, pic_img_name, path):
     #print(path)

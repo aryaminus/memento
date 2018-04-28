@@ -11,7 +11,7 @@ VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp"]
 class maker(object):
     
     def __init__(self):
-        print('Cropping in process')
+        print('Edit Initialization \n')
     
     def create_directory(self, directory_path_text,directory_path_pic):
         if not os.path.exists(directory_path_text): #No path
@@ -71,7 +71,7 @@ class maker(object):
                 
                 new_text = self.editext(text)
 
-                pic_img_name = filename + '_pic' + ext
+                pic_img_name = filename + ext
                 pic_img_name = directory_path_pic + pic_img_name
 
                 image_join_main(new_text, pic_img_name, path)

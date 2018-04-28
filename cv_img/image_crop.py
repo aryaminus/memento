@@ -67,7 +67,7 @@ class croper(object):
         cv2.imwrite(text_img_name,text_cropped)
         # print "Text component saved as: " + str(text_img_name)
         im_cropped = im[y0:y1, x0:x1]
-        pic_img_name = filename + '_pic' + ext
+        pic_img_name = filename + ext
         pic_img_name = directory_path_pic + pic_img_name
         cv2.imwrite(pic_img_name,im_cropped)
 
