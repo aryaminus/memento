@@ -1,9 +1,10 @@
 import os
-import sys
-from image_crop import image_crop_main
-from image_ocr import image_ocr_main
-from image_join import image_join_main
 import shutil
+import sys
+
+from image_crop import image_crop_main
+from image_join import image_join_main
+from image_ocr import image_ocr_main
 
 VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp"]
 

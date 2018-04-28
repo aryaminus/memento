@@ -1,5 +1,6 @@
 import os
 import sys
+
 import PIL.Image as Im
 import pyocr
 import pyocr.builders
@@ -7,8 +8,6 @@ from PIL import Image as Im
 from pyocr import tesseract as tool
 
 VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp"]
-
-#FNULL = open(os.devnull, 'w') #Open file in write mode to The file path of the null device. For example: '/dev/null' 
 
 class save(object):
     

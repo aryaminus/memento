@@ -1,11 +1,11 @@
-import PIL
 import math
-import textwrap
-from PIL import ImageFont
-from PIL import Image
-from PIL import ImageDraw
 import os
 import shutil
+import textwrap
+
+import PIL
+from PIL import Image, ImageDraw, ImageFont
+
 
 ## calculates the bounding area needed for the text-box
 def calculate_text_bbox(text):

@@ -1,10 +1,12 @@
+import os
+import sys
+
 import PIL.Image as Im
 import pyocr
 import pyocr.builders
 from PIL import Image as Im
 from pyocr import tesseract as tool
-import sys
-import os
+
 
 class iocr(object):
     
