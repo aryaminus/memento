@@ -11,13 +11,11 @@ class maker(object):
     def __init__(self):
         print('Cropping in process')
     
-    def create_directory(self, directory_path_text,directory_path_pic, directory_path_final):
+    def create_directory(self, directory_path_text,directory_path_pic):
         if not os.path.exists(directory_path_text): #No path
 	        os.makedirs(directory_path_text) #Create path
         if not os.path.exists(directory_path_pic): #No path
-	        os.makedirs(directory_path_pic) #Create path]
-        if not os.path.exists(directory_path_final): #No path
-	        os.makedirs(directory_path_final) #Create path]
+	        os.makedirs(directory_path_pic) #Create path
 
     def editext(self, text):
         while True:
@@ -42,8 +40,7 @@ class maker(object):
 
     def main(self, path):
         directory_path_text = path + '/text/' #Create text_conversion folder
-        directory_path_pic = path + '/pic/' #Create text_conversion folder
-        directory_path_final = path + '/Memento/' #Create text_conversion folder
+        directory_path_pic = path + '/Memento/' #Create text_conversion folder
         count = 0
         other_files = 0
 
@@ -60,7 +57,7 @@ class maker(object):
 
             else:
                 if count == 0: #No directory created
-                    self.create_directory(directory_path_text,directory_path_pic, directory_path_final) #function to create directory
+                    self.create_directory(directory_path_text,directory_path_pic) #function to create directory
 
                 count += 1
 
@@ -75,7 +72,7 @@ class maker(object):
                 pic_img_name = filename + '_pic' + ext
                 pic_img_name = directory_path_pic + pic_img_name
 
-                image_join_main(new_text, pic_img_name, directory_path_final, path)
+                image_join_main(new_text, pic_img_name, path)
 
                 print(str(count) + (" file" if count == 1 else " files") + " processed")
 

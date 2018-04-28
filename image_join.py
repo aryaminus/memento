@@ -73,7 +73,7 @@ class ijoin(object):
     def __init__(self):
         print('Joining in process')
 
-    def main(self, text, image_path, directory_path_final, path):
+    def main(self, text, image_path, path):
         width = height = 1080
         margin = offset = 40
         px_between_text_and_pic = 57
@@ -97,10 +97,10 @@ class ijoin(object):
         
         os.chmod(path, 0o777) 
         background.save(image_path)
-        shutil.rmtree(path + '/text/')
-        shutil.rmtree(path + '/pic/')
+        #shutil.rmtree(path + '/text/')
+        #shutil.rmtree(path + '/pic/')
                 
-def image_join_main(new_text, pic_img_name, directory_path_final, path):
+def image_join_main(new_text, pic_img_name, path):
     #print(path)
     s = ijoin()
-    s.main(new_text, pic_img_name, directory_path_final, path) # Def main to path
+    s.main(new_text, pic_img_name, path) # Def main to path
