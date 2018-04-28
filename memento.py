@@ -2,6 +2,7 @@ import os
 import sys
 from subprocess import call
 
+from image_make import image_make_main
 from ocr_orientation import ocr_orientation_main
 from ocr_rename import ocr_rename_main
 from ocr_save import ocr_save_main
@@ -22,9 +23,9 @@ def main(path):
     while(True):
         sys.stdout.write("\t\t\t Memento: Meme Organizer \t \n")
         if check_path(path):
-            prompt = " [1/2/3/4]: "
+            prompt = " [1/2/3/4/5]: "
             sys.stdout.write("\n")
-            sys.stdout.write(' 1) Orientation Check \n 2) Rename \n 3) Save OCR \n 4) Exit ' + prompt)
+            sys.stdout.write(' 1) Orientation Check \n 2) Rename file \n 3) Save OCR \n 4) Edit text \n 5) Exit ' + prompt)
             choice = input().lower().strip()
             if choice[0] == '1':
                 ocr_orientation_main(path)
@@ -36,6 +37,9 @@ def main(path):
                 ocr_save_main(path)
                 print("DONE!! \n")
             elif choice[0] == '4':
+                image_make_main(path)
+                print("DONE!! \n")
+            elif choice[0] == '5':
                 print("\t\t\t Thank you for using Memento!")
                 sys.exit(1)
             else:
