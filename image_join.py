@@ -41,7 +41,7 @@ def place_text(img, text, spacing):
 	draw = ImageDraw.Draw(img)
 	margin = spacing[1]
 	offset = spacing[2]
-	font = ImageFont.truetype("HelveticaNeue Light.ttf",60)
+	font = ImageFont.truetype("Font.ttf",60)
 	chars_per_line = float(36)
 	for line in textwrap.wrap(text, width=chars_per_line):
 		draw.text((margin, offset), line, font=font, fill="black")
@@ -91,12 +91,12 @@ class ijoin(object):
         paste_pic(pic, canvas, spacing)
         max_demision = max(content_bbox)
         background = Image.new("RGB", (max_demision, max_demision), (255,255,255))
-        box = [abs((content_bbox[0] - max_demision))/2, abs((content_bbox[1] - max_demision)/2)]
+        box = [abs((content_bbox[0] - max_demision))//2, abs((content_bbox[1] - max_demision)//2)]
         background.paste(canvas, box=box, mask=None)
         background.resize((width,height)) 
         
         os.chmod(path, 0o777) 
-        background.save(directory_path_final)
+        background.save(image_path)
         shutil.rmtree(path + '/text/')
         shutil.rmtree(path + '/pic/')
                 

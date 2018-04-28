@@ -24,7 +24,7 @@ class croper(object):
         naked_size = im_naked.size
         bordered_size = (int(naked_size[0]*1.1), int(naked_size[1]*1.1))
         im_bordered = Im.new("RGB", bordered_size, color = (255,255,255))
-        im_bordered.paste(im_naked, ((bordered_size[0]-naked_size[0])/2,(bordered_size[1]-naked_size[1])/2))
+        im_bordered.paste(im_naked, ((bordered_size[0]-naked_size[0])//2,(bordered_size[1]-naked_size[1])//2))
         return im_bordered
 
     # Converts PIL image format to OpenCV format
