@@ -15,6 +15,13 @@ Make sure you have a OCR tool like `tesseract` and certain data value for compar
 
 ## Installation
 
+Install using PIP:
+```
+$ sudo pip install mementor
+$ memento <dirname>
+```
+***else***
+
 Clone the source locally:
 ```
 $ git clone https://github.com/aryaminus/memento
