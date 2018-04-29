@@ -3,9 +3,9 @@ import sys
 from subprocess import call
 
 from image_make import image_make_main
-from tess_ocr.ocr_orientation import ocr_orientation_main
-from tess_ocr.ocr_rename import ocr_rename_main
-from tess_ocr.ocr_save import ocr_save_main
+from memento.tess_ocr.ocr_orientation import ocr_orientation_main
+from memento.tess_ocr.ocr_rename import ocr_rename_main
+from memento.tess_ocr.ocr_save import ocr_save_main
 
 
 class ArgumentMissingException(Exception):

@@ -2,10 +2,9 @@ import os
 import shutil
 import sys
 
-from cv_img.image_crop import image_crop_main
-from cv_img.image_join import image_join_main
-from cv_img.image_ocr import image_ocr_main
-from tess_ocr.ocr_rename import ocr_rename_main
+from memento.cv_img.image_crop import image_crop_main
+from memento.cv_img.image_join import image_join_main
+from memento.cv_img.image_ocr import image_ocr_main
 
 VALIDITY = [".jpg",".gif",".png",".tga",".tif",".bmp"]
 
