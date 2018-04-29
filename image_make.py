@@ -25,9 +25,9 @@ class maker(object):
             print('\nCurrent text: \n' + text)
             prompt = " [1/2/3]: "
             sys.stdout.write(' \n 1) Edit text \n 2) Replace word \n 3) Change complete ' + prompt)
-            choice = input().lower().strip()
+            choice = input()
             if choice[0] == '1':
-                print ('Enter new text:')
+                print ('\nEnter new text:')
                 text = input()
             elif choice[0] == '2':
                 print('\n Enter word to replace:')
@@ -36,6 +36,7 @@ class maker(object):
                 new = input()
                 text = text.replace(orig, new)
             elif choice[0] == '3':
+                print('\nGot the new word!\n')
                 break
             else:
                 sys.stdout.write("Invalid Choice \n")

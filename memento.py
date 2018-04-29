@@ -18,6 +18,7 @@ def check_path(path):
 
 def main(path):
     call(['clear'])
+    i = 0
     if call(['which', 'tesseract']): #Run the command described by args
         print("tesseract-ocr missing") #No tesseract installed
     while(True):
@@ -25,25 +26,30 @@ def main(path):
         if check_path(path):
             prompt = " [1/2/3/4/5]: "
             sys.stdout.write("\n")
-            sys.stdout.write(' 1) Orientation Check \n 2) Rename file \n 3) Save OCR \n 4) Edit text \n 5) Exit ' + prompt)
-            choice = input().lower().strip()
-            if choice[0] == '1':
-                ocr_orientation_main(path)
-                print("DONE!! \n")
-            elif choice[0] == '2':
-                ocr_rename_main(path)
-                print("DONE!! \n")
-            elif choice[0] == '3':
-                ocr_save_main(path)
-                print("DONE!! \n")
-            elif choice[0] == '4':
-                image_make_main(path)
-                print("DONE!! \n")
-            elif choice[0] == '5':
-                print("\t\t\t Thank you for using Memento!")
-                sys.exit(1)
-            else:
-                sys.stdout.write("Invalid Choice \n")
+            sys.stdout.write(' 1) Orientation Check \n 2) Rename file \n 3) Save OCR \n 4) Edit text \n 5) Exit \n (Can you multiple inputs)' + prompt)
+            choice = input()
+            while (i != len(choice)):
+                print ('\n\t\t\t Current Choice: ' + choice[i] + '\n')
+                if choice[i] == '1':
+                    ocr_orientation_main(path)
+                    print(" Orientation Check DONE!! \n")
+                elif choice[i] == '2':
+                    ocr_rename_main(path)
+                    print("Rename to identified text DONE!! \n")
+                elif choice[i] == '3':
+                    ocr_save_main(path)
+                    print("Save the OCR to /OCR-text/ DONE!! \n")
+                elif choice[i] == '4':
+                    image_make_main(path)
+                    print("Edit the text in image DONE!! \n")
+                elif choice[i] == '5':
+                    print("\t\t\t Thank you for using Memento!")
+                    sys.exit(1)
+                elif choice[i] == ' ':
+                    print("Chosing Next! \n")
+                else:
+                    sys.stdout.write("Invalid Choice \n")
+                i += 1
         else :
             print("No directory : " + format(path))
 
