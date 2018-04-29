@@ -72,10 +72,12 @@ class maker(object):
                 
                 new_text = self.editext(text)
 
-                pic_img_name = filename + ext
+                pic_img_name = 'Mem_' + filename + ext
                 pic_img_name = directory_path_pic + pic_img_name
 
-                image_join_main(new_text, pic_img_name, path)
+                new_img_name = directory_path_pic + new_text + ext
+
+                image_join_main(new_text, pic_img_name, path, new_img_name)
 
                 print(str(count) + (" file" if count == 1 else " files") + " processed")
 
@@ -84,7 +86,9 @@ class maker(object):
         else :
             print(str(count) + " / " + str(count + other_files) + " files converted")
             shutil.rmtree(path + '/text/')
-            ocr_rename_main(path + '/Memento/')
+            for f in os.listdir(directory_path_pic):
+                if f.startswith("Mem_"):
+                    os.remove(os.path.join(directory_path_pic, f))
 
 def image_make_main(path):
     print(path)

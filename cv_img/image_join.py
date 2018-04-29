@@ -72,7 +72,7 @@ class ijoin(object):
     def __init__(self):
         print('Joining in process')
 
-    def main(self, text, image_path, path):
+    def main(self, text, image_path, path, new_img_name):
         width = height = 1080
         margin = offset = 40
         px_between_text_and_pic = 57
@@ -95,9 +95,9 @@ class ijoin(object):
         background.resize((width,height)) 
         
         os.chmod(path, 0o777) 
-        background.save(image_path)
+        background.save(new_img_name)
                 
-def image_join_main(new_text, pic_img_name, path):
+def image_join_main(new_text, pic_img_name, path, new_img_name):
     #print(path)
     s = ijoin()
-    s.main(new_text, pic_img_name, path) # Def main to path
+    s.main(new_text, pic_img_name, path, new_img_name) # Def main to path
