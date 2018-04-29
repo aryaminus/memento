@@ -26,6 +26,7 @@ Clone the source locally:
 ```
 $ git clone https://github.com/aryaminus/memento
 $ cd memento
+$ git checkout feature/CV-UI
 $ python3 memento.py <dirname>
 ```
 ## Stepwise working
