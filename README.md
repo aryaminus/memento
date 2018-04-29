@@ -19,7 +19,7 @@ Clone the source locally:
 ```
 $ git clone https://github.com/aryaminus/memento
 $ cd memento
-$ python memento.py <dirname>
+$ python3 memento.py <dirname>
 ```
 ## Stepwise working
 <p align="center">
@@ -28,7 +28,7 @@ $ python memento.py <dirname>
 
 ## Todo
 - [x] Fix for subprocess to accept spaced directories
-- [x] Add choice to fetch full OCR text into `/OCR-text/` directory
+- [x] Add choice to fetch full OCR text
 - [x] String stream to allow user to choose the particular feature of memento
 - [x] Using OpenCV to partition image and text section to edit the text
 - [ ] Listing the images in the directory to edit a particular image only
