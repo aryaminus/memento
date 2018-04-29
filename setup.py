@@ -8,7 +8,7 @@ def readme():
 setup(
     name = 'mementor',
     packages = ['mementor'], # this must be the same as the name above
-    version = '1.0.1',
+    version = '1.0.2',
     description = 'A library to fetch images from directory to fix orientation and pull OCR from the images along with editing the text inside images, primarily focusing on memes',
     long_description = readme(),
     author = 'Sunim Acharya',
@@ -17,7 +17,7 @@ setup(
     keywords = ['ocr', 'image', 'opencv', 'tesseract', 'orientation'], # arbitrary keywords
     classifiers = [],
     install_requires=[
-        'pillow', 'pyocr', 'numpy'
+        'pillow', 'pyocr', 'numpy', 'tesseract'
     ],
     include_package_data=True,
     zip_safe=False,

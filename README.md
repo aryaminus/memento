@@ -8,7 +8,7 @@ Organize your memes by having the window to:
 
 **Currently in beta state**
 
-[![memento features](https://i.imgur.com/WwXUTnW.gif)](https://youtu.be/YF6Tf7qOXU4)
+[![memento features](https://i.imgur.com/A8nZo21.gif)](https://youtu.be/YF6Tf7qOXU4)
 
 **Note:**
 Make sure you have a OCR tool like `tesseract` and certain data value for comparing OCR, eg `tesseract-data-eng` along with `Pillow` and `Wand` for image conversion and loading to draw along with `numpy` and `cv2` for all Image processing required to crop the image with border values defined
