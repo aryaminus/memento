@@ -6,9 +6,9 @@ def readme():
         return f.read()
 
 setup(
-    name = 'memento',
-    packages = ['memento'], # this must be the same as the name above
-    version = '1.0.0',
+    name = 'mementor',
+    packages = ['mementor'], # this must be the same as the name above
+    version = '1.0.1',
     description = 'A library to fetch images from directory to fix orientation and pull OCR from the images along with editing the text inside images, primarily focusing on memes',
     long_description = readme(),
     author = 'Sunim Acharya',
@@ -23,6 +23,6 @@ setup(
     zip_safe=False,
     entry_points={
     'console_scripts': [
-        'memento = memento.memento:start'
+        'memento = mementor.memento:start'
     ]},
 )
