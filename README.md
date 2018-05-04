@@ -5,6 +5,7 @@ Organize your memes by having the window to:
 - Fetching the OCR from the meme and renaming the particular image with the initial 60 characters 
 - Option to track all text from the image and store in `/OCR-text/`
 - Using OpenCV to segment Image and text to get the recognized text to edit the meme and store in `/Memento/`
+- Single or multiple option choosing support
 
 **Demo run:**  <a href="https://youtu.be/5Zt52ZxJJ0Y" target="_blank"> Youtube</a> 
 
