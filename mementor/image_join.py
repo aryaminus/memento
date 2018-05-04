@@ -40,7 +40,7 @@ def place_text(img, text, spacing):
 	draw = ImageDraw.Draw(img)
 	margin = spacing[1]
 	offset = spacing[2]
-	font = ImageFont.truetype("Font.ttf",60)
+	font = ImageFont.truetype("arial.ttf",60)
 	chars_per_line = float(36)
 	for line in textwrap.wrap(text, width=chars_per_line):
 		draw.text((margin, offset), line, font=font, fill="black")
