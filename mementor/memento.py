@@ -43,6 +43,7 @@ def main(path):
                     image_make_main(path)
                     print("Edit the text in image DONE!! \n")
                 elif choice[i] == '5':
+                    call(['clear'])
                     print("\t\t\t Thank you for using Memento!")
                     sys.exit(1)
                 elif choice[i] == ' ':
