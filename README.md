@@ -6,9 +6,11 @@ Organize your memes by having the window to:
 - Option to track all text from the image and store in `/OCR-text/`
 - Using OpenCV to segment Image and text to get the recognized text to edit the meme and store in `/Memento/`
 
+**Demo run: ** <a href="https://youtu.be/5Zt52ZxJJ0Y" target="_blank">Youtube</a>
+
 **Currently in beta state**
 
-[![memento features](https://i.imgur.com/A8nZo21.gif)](https://youtu.be/YF6Tf7qOXU4)
+[![memento features](https://i.imgur.com/A8nZo21.gif)](https://youtu.be/5Zt52ZxJJ0Y)
 
 **Note:**
 Make sure you have a OCR tool like `tesseract` and certain data value for comparing OCR, eg `tesseract-data-eng` along with `Pillow` and `Wand` for image conversion and loading to draw along with `numpy` and `cv2` for all Image processing required to crop the image with border values defined
